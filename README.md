@@ -7,7 +7,7 @@ Welcome to the detailed documentation of Clyne, an integrated system for cryptoc
 **About Cryptonel (CRN):**
 Cryptonel is the platform's exclusive digital currency with the ticker symbol CRN. Unlike traditional cryptocurrencies, CRN operates on Clyne's private network rather than a public blockchain. This provides enhanced control, security, and performance optimization. CRN serves as the only currency within the ecosystem, enabling transactions, access to premium features, and participation in the platform's governance. The mining algorithms for CRN are specifically optimized for energy efficiency within the Clyne network environment.
 
-This documentation provides a comprehensive overview of the entire Clyne ecosystem, covering everything from technical architecture to deployment procedures. I'll explain everything from A to Z as if explaining it in an interview.
+This documentation provides a comprehensive overview of the entire Clyne ecosystem, covering everything from technical architecture to deployment procedures. I'll explain everything from A to Z.
 
 ## Project Structure and Technologies Used
 
@@ -683,6 +683,366 @@ This documentation provides a comprehensive overview of the entire Clyne ecosyst
 - User transfer history access
 - Manual review processes for flagged transfers
 - System-wide transfer statistics
+
+## Transaction History and Activity Tracking
+
+### 1. Transaction History Overview
+
+**Core Features:**
+- Comprehensive transaction history tracking
+- Detailed transaction records for all user activity
+- Advanced filtering and search capabilities
+- Transaction summary statistics and analytics
+
+**History Components:**
+- Sent transaction records
+- Received transaction records
+- Mining reward history
+- System-generated transactions
+- Fee records
+
+### 2. Transaction Data Structure
+
+**Transaction Records:**
+- Unique transaction ID for each transfer
+- Timestamp with millisecond precision
+- Transaction type classification
+- Source and destination wallets
+- Transaction amount with 8 decimal precision
+- Transaction status tracking
+- Optional transaction message/reason
+
+**Transaction Summary:**
+- Total transaction count
+- Total sent amount
+- Total received amount
+- Largest transaction amount
+- Recent activity metrics (week/month/year)
+- Current balance calculation
+
+### 3. History API Endpoints
+
+**Core Endpoints:**
+- `/api/transaction-history`: Retrieves paginated transaction history
+- `/api/transaction-history/<tx_id>`: Gets details of specific transaction
+- `/api/transaction-history/summary`: Provides transaction summary data
+- `/api/transaction-history/export`: Exports transaction data in various formats
+
+**Implementation Features:**
+- Pagination for large transaction sets
+- Date formatting and normalization
+- Date range filtering
+- Transaction type filtering
+- Sort options (newest/oldest/amount)
+
+## Security and Privacy Settings
+
+### 1. Advanced Security Features
+
+**Authentication Options:**
+- Two-factor authentication (2FA)
+- Transfer password system
+- Secret word verification
+- Time-based access restrictions
+- Geographic location locks
+
+**Security Tools:**
+- Wallet freezing capability
+- Daily/weekly transfer limits
+- IP address whitelisting
+- Device management and tracking
+- Session control and management
+
+### 2. Privacy Management
+
+**Privacy Options:**
+- Profile visibility controls
+- Balance display preferences
+- Address visibility settings
+- Hidden wallet mode for premium users
+- Verification status visibility control
+
+**Personalization Features:**
+- Custom color scheme settings (premium)
+- UI appearance preferences
+- Customizable profile information
+- Activity display preferences
+
+### 3. Security API Endpoints
+
+**Security Control Endpoints:**
+- `/api/security/settings`: Retrieves security configuration
+- `/api/security/2fa/*`: 2FA setup, verification, and management
+- `/api/security/transfer-password`: Transfer password management
+- `/api/security/daily-limit`: Wallet limit management
+- `/api/security/freeze-wallet`: Wallet freeze controls
+
+**Additional Security Endpoints:**
+- `/api/security/geo-lock`: Geographic restriction controls
+- `/api/security/ip-whitelist`: IP whitelisting management
+- `/api/security/time-based-access`: Time-based restrictions
+- `/api/security/detect-country`: Geographic location detection
+- `/api/security/auto-signin`: Auto-signin settings
+
+### 4. Security Scoring System
+
+**Security Score Components:**
+- Base score (40 points)
+- 2FA activation (+25 points)
+- Transfer password (+15 points)
+- Wallet limit (+7 points)
+- Wallet freezing (+5 points)
+- 2FA for transfers (+20 points)
+- Password for transfers (+12 points)
+- 2FA for login (+20 points)
+- Secret word for login (+12 points)
+- Additional security features (+5 each)
+
+**Score Benefits:**
+- Visual security level indicator
+- Security improvement recommendations
+- Access to additional features at higher scores
+- Enhanced security monitoring at lower scores
+
+## Leaderboard System
+
+### 1. Leaderboard Overview
+
+**Core Features:**
+- Real-time ranking of user mining and activity
+- Performance-based recognition system
+- Customizable display options
+- Cache-optimized for high performance
+
+**Ranking Criteria:**
+- Total CRN mined
+- Transaction volume
+- Account activity level
+- Mining consistency
+
+### 2. Leaderboard Implementation
+
+**Technical Implementation:**
+- MongoDB aggregation for efficient ranking
+- Memory caching for reduced database load
+- Rate limiting to prevent abuse
+- Cache invalidation strategies
+
+**Display Features:**
+- User avatars and profile information
+- Mining statistics and rankings
+- Pagination for smooth browsing
+- Optional hidden mode for privacy
+
+### 3. Leaderboard API
+
+**Core Endpoints:**
+- `/leaderboard`: Retrieves current leaderboard rankings
+- `/leaderboard/me`: Shows the current user's ranking
+- `/leaderboard/top`: Gets only top performing users
+- `/leaderboard/friends`: Shows rankings among connected users
+
+**Technical Features:**
+- Cache control with timeout parameters
+- Freshness indicators for cached data
+- Optional data refresh triggers
+- Performance optimization through indexing
+
+## Notification System and Email Communication
+
+### 1. Email Notification System
+
+**Core Components:**
+- Transaction-based email alerts
+- Security notifications for account events
+- Marketing and announcement distribution
+- Template-based email generation system
+
+**Email Types:**
+- Transaction confirmation emails
+- Transfer receipt notifications
+- Security alert emails
+- Account status change notifications
+- System maintenance announcements
+
+### 2. Notification Implementation
+
+**Technical Features:**
+- HTML and text email templates
+- Localization support for multiple languages
+- Queue-based sending for reliability
+- Rate limiting to prevent spam
+- Background processing for performance
+
+**Security Measures:**
+- Email verification for security-sensitive operations
+- Anti-phishing protection features
+- Unsubscribe options for marketing emails
+- Email address validation and verification
+- Secure links with expiration times
+
+### 3. Email API Integration
+
+**Email Service Integration:**
+- Support for multiple email service providers
+- Fallback mechanisms for delivery reliability
+- Delivery status tracking
+- Bounce and complaint handling
+- Email analytics and metrics
+
+**Customization Options:**
+- User notification preferences
+- Email frequency control
+- Email format preferences
+- Time-zone aware scheduling
+- Premium user enhanced notifications
+
+## Quick Transfer System
+
+### 1. Quick Transfer Features
+
+**Core Functionality:**
+- Simplified transfer workflow
+- Pre-saved recipient management
+- One-click transfers to frequent contacts
+- Streamlined authentication for small amounts
+- Mobile-optimized interface
+
+**Technical Implementation:**
+- Cached recipient information
+- Abbreviated security checks for trusted recipients
+- Progressive security based on transfer amount
+- Transaction batching for performance
+- Optimized mobile experience
+
+### 2. Quick Transfer Security
+
+**Security Balancing:**
+- Risk-based security level determination
+- Trusted device recognition
+- Transfer pattern analysis
+- Fraud detection for unusual activity
+- Simplified verification for low-risk transfers
+
+**User Controls:**
+- Quick transfer limit settings
+- Trusted recipient management
+- Transfer confirmation preferences
+- Authentication level customization
+- Auto-logout settings after transfers
+
+### 3. Quick Transfer API
+
+**Core Endpoints:**
+- `/api/quick-transfer/recipients`: Manages saved recipients
+- `/api/quick-transfer/send`: Processes quick transfers
+- `/api/quick-transfer/limits`: Controls quick transfer limits
+- `/api/quick-transfer/trusted`: Manages trusted recipient status
+
+**Integration Features:**
+- Mobile app deep linking support
+- Widget integration for third-party sites
+- QR code generation for quick payments
+- NFC support for contactless transfers
+
+## Custom Address System
+
+### 1. Address Management
+
+**Address Features:**
+- Customizable wallet addresses
+- Vanity address generation
+- Multiple address management per user
+- Address tagging and categorization
+- Address usage analytics
+
+**Premium Features:**
+- Ultra-short custom addresses
+- Brand-themed addresses
+- Special character support
+- Premium address reservation
+- Multi-signature addresses
+
+### 2. Address Security
+
+**Security Measures:**
+- Address verification system
+- Typo detection to prevent errors
+- Visual address verification
+- Blacklist checking for known scam addresses
+- Address expiration options
+
+**Privacy Options:**
+- Disposable one-time addresses
+- Time-limited addresses
+- Stealth addressing options for premium users
+- Address history privacy controls
+- Address sharing permissions
+
+### 3. Address API Endpoints
+
+**Core Endpoints:**
+- `/api/custom-address/create`: Creates new custom addresses
+- `/api/custom-address/verify`: Verifies address validity
+- `/api/custom-address/list`: Lists user's custom addresses
+- `/api/custom-address/update`: Updates address properties
+
+**Management Features:**
+- Bulk address operations
+- Address usage statistics
+- Address performance metrics
+- Integration with external systems
+- Address import/export capabilities
+
+## User Dashboard Overview
+
+### 1. Dashboard Features
+
+**Core Components:**
+- Real-time balance and activity summary
+- Recent transaction display
+- Performance metrics and statistics
+- System status indicators
+- Quick action shortcuts
+
+**Data Visualization:**
+- CRN balance trend charts
+- Mining performance graphs
+- Transaction volume analytics
+- Security status indicators
+- Network activity visualization
+
+### 2. Dashboard Customization
+
+**Personalization Options:**
+- Widget arrangement and selection
+- Display density preferences
+- Dark/light mode selection
+- Information priority settings
+- Chart type preferences
+
+**Premium Features:**
+- Advanced analytics views
+- Extended history charting
+- Custom theme options
+- Additional widget types
+- Portfolio performance projections
+
+### 3. Dashboard Integration
+
+**System Integration:**
+- Real-time data update mechanisms
+- Wallet integration for quick actions
+- Mining status integration
+- Security alert display
+- Market information feeds
+
+**Technical Implementation:**
+- Efficient data caching strategies
+- Progressive data loading
+- Optimized database queries
+- WebSocket updates for real-time data
+- Background data prefetching
 
 ## Deployment and Server Setup
 
