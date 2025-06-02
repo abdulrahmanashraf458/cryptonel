@@ -2,10 +2,10 @@
 
 ## Introduction
 
-Welcome to the detailed documentation of Clyne, an integrated system for cryptocurrency wallet management and mining operations, built with the latest technologies and global security standards. Clyne is designed specifically for managing Cryptonel (CRN), our native cryptocurrency, along with other supported digital assets.
+Welcome to the detailed documentation of Clyne, an integrated system for cryptocurrency wallet management and mining operations, built with the latest technologies and global security standards. Clyne operates on its own proprietary private network exclusively supporting Cryptonel (CRN), our native cryptocurrency.
 
 **About Cryptonel (CRN):**
-Cryptonel is the platform's native utility token with the ticker symbol CRN. It serves as the primary cryptocurrency within the ecosystem, enabling transactions with reduced fees, access to premium features, and participation in the platform's governance. CRN is built on a secure blockchain architecture emphasizing both speed and security, with advanced mining algorithms optimized for energy efficiency.
+Cryptonel is the platform's exclusive digital currency with the ticker symbol CRN. Unlike traditional cryptocurrencies, CRN operates on Clyne's private network rather than a public blockchain. This provides enhanced control, security, and performance optimization. CRN serves as the only currency within the ecosystem, enabling transactions, access to premium features, and participation in the platform's governance. The mining algorithms for CRN are specifically optimized for energy efficiency within the Clyne network environment.
 
 This documentation provides a comprehensive overview of the entire Clyne ecosystem, covering everything from technical architecture to deployment procedures. I'll explain everything from A to Z as if explaining it in an interview.
 
@@ -456,6 +456,233 @@ This documentation provides a comprehensive overview of the entire Clyne ecosyst
 - Strategy for reducing transaction costs
 - Continuous performance optimization with user growth
 - Integration with next-generation cryptocurrency technologies
+
+## Mining System and Architecture
+
+### 1. Mining System Overview
+
+**Core Components:**
+- Advanced sharded data structure for scalable mining rewards
+- Security-focused fingerprinting system to prevent abuse
+- Rate-limited mining with configurable cooldown periods
+- Multi-layered verification system including 2FA for high-reward mining
+
+**Mining Mechanism:**
+- Mining operates on Clyne's private network, not a public blockchain
+- Rewards are generated based on a calculated mining difficulty algorithm
+- Users can mine once per configurable period (default: hours)
+- Rewards are immediately credited to user wallets after verification
+
+### 2. Mining Security System
+
+**Advanced Fingerprinting:**
+- Device and browser fingerprinting to prevent multiple accounts
+- IP analysis with VPN and proxy detection
+- Geographic origin verification
+- Session device tracking and anomaly detection
+
+**Anti-Fraud Measures:**
+- Rate limiting per IP address and device fingerprint
+- Progressive penalties for suspicious activity
+- Account blocking system for repeated violations
+- Reputation scoring system for trusted devices
+
+**Advanced Detection Systems:**
+- VM and emulator detection to prevent automation
+- Spoofing detection for user-agent manipulation
+- Datacenter IP range detection
+- TOR exit node identification
+
+### 3. Mining Reward Management
+
+**Reward Calculation:**
+- Base daily mining rate configurable by administrators
+- Difficulty factor based on network conditions
+- Random variation to prevent predictability
+- Boosted mining periods for special events
+
+**Mining Limits:**
+- Device count limits per user account
+- Network usage restrictions
+- Cooldown periods between mining sessions
+- Premium user benefits with reduced limitations
+
+### 4. DDoS Protection Integration
+
+**Cloudflare Integration:**
+- Seamless Cloudflare API integration
+- Rate limiting at edge network
+- Bot protection for mining endpoints
+- Automatic blocking of malicious IP addresses
+
+**Internal Protection:**
+- Request throttling for high-volume endpoints
+- Monitoring system for traffic anomalies
+- Advanced IP analysis for risk assessment
+- Whitelist system for trusted sources
+
+### 5. Mining API Endpoints
+
+**Core Endpoints:**
+- `/api/mining/check`: Validates eligibility and calculates potential reward
+- `/api/mining/apply-reward`: Credits validated mining reward to user
+- `/api/mining/status`: Provides current mining system status
+- `/api/mining/stats`: Retrieves user mining statistics
+
+**Security Endpoints:**
+- `/api/mining/security/check`: Validates device security status
+- `/api/fingerprint/*`: Advanced device fingerprinting endpoints
+- `/api/mining/check-2fa-required`: Determines if 2FA is needed
+- `/api/mining/verify-2fa`: Verifies 2FA for high-security operations
+
+### 6. Monitoring and Analytics
+
+**Performance Monitoring:**
+- Real-time metrics via Prometheus and Grafana
+- Mining rate dashboards
+- Security violation tracking
+- System health indicators
+
+**Analytics Capabilities:**
+- Mining pattern analysis
+- Fraud attempt detection reports
+- User mining behavior statistics
+- Network usage distribution visualization
+
+### 7. Mining System Configuration
+
+**Key Configuration Parameters:**
+- `MINING_SESSION_HOURS`: Hours between mining sessions (default: 24)
+- `DAILY_MINING_RATE`: Base daily mining reward rate
+- `DIFFICULTY_FACTOR`: Mining difficulty multiplier
+- `BOOSTED_MINING_MULTIPLIER`: Reward multiplier during boost periods
+- `MAX_DEVICES_PER_USER`: Maximum allowed devices for mining
+- `SECURITY_STRICTNESS`: Security enforcement level (1-5)
+
+**Advanced Settings:**
+- Advanced device fingerprinting parameters
+- IP intelligence integration settings
+- Security score thresholds
+- Account penalty configurations
+
+## Transfer System and Wallet Management
+
+### 1. Transfer System Overview
+
+**Core Components:**
+- Secure wallet-to-wallet transfer system
+- Rate-limiting and anti-abuse protection
+- Multi-factor authentication for transfers
+- Transaction history and tracking
+
+**Transfer Features:**
+- Direct transfers between Cryptonel (CRN) wallets
+- Custom private addresses for user identification
+- Optional transfer reason/message system
+- Tax and fee calculation based on transfer amount
+
+### 2. Security Mechanisms
+
+**Authentication Requirements:**
+- Two-factor authentication (2FA) for high-value transfers
+- Secret word verification as an alternative security method
+- Progressive security based on transfer value and user risk profile
+- Rate-limiting on address validation attempts
+
+**Anti-Fraud Measures:**
+- Monitoring for suspicious transfer patterns
+- Waiting period between large transfers (cooldown)
+- Restrictions on transfers to flagged accounts
+- Transaction validation and verification steps
+
+### 3. Wallet Management System
+
+**Core Wallet Features:**
+- Individual private wallet address for each user
+- Real-time balance updates and transaction tracking
+- Optional daily/weekly transfer limits
+- Emergency wallet freezing capability
+
+**Wallet Security:**
+- Wallet address validation system
+- Balance protection mechanisms
+- Access control based on user authentication
+- Suspicious activity alerts
+
+### 4. Transfer API Endpoints
+
+**Core Endpoints:**
+- `/api/wallet/balance`: Gets user's current wallet balance
+- `/api/transfers/send`: Processes a new transfer between wallets
+- `/api/transfers/validate-address`: Validates recipient address
+- `/api/transfers/auth-method`: Provides required authentication method
+
+**Management Endpoints:**
+- `/api/wallet/limit`: Gets user's transfer limits
+- `/api/wallet/toggle-limit`: Enables/disables transfer limits
+- `/api/wallet/frozen-status`: Checks if wallet is frozen
+- `/api/wallet/toggle-frozen`: Freezes/unfreezes wallet
+
+### 5. User Rating System
+
+**Rating Features:**
+- Peer-to-peer user ratings after transactions
+- Star-based rating system (1-5 stars)
+- Optional comments for detailed feedback
+- Average rating calculation
+
+**Rating Benefits:**
+- Helps identify trusted transaction partners
+- Builds community reputation
+- Provides transaction confidence
+- Assists in dispute resolution
+
+### 6. Fee and Tax System
+
+**Fee Structure:**
+- Configurable transaction fee percentage
+- Fee tiers based on transaction amount
+- Special rates for premium users
+- Fee exemptions for certain transaction types
+
+**Implementation Features:**
+- Automatic fee calculation during transfer
+- Transparent fee display before confirmation
+- Fee collection into system wallet
+- Detailed fee breakdown in transaction history
+
+### 7. Transaction Processing Engine
+
+**Processing Steps:**
+- Source wallet verification
+- Destination verification
+- Balance and limit checks
+- Fee calculation
+- Multi-factor authentication
+- Balance updates
+- Notification system
+- Transaction recording
+
+**Transaction States:**
+- Pending: Initial processing state
+- Verified: Authentication complete
+- Completed: Successfully processed
+- Failed: Error during processing
+- Reversed: Administratively reversed transaction
+
+### 8. Transfer Analytics and Monitoring
+
+**Monitoring Features:**
+- Transaction volume tracking
+- Unusual activity detection
+- Transfer pattern analysis
+- Security threshold monitoring
+
+**Administrative Tools:**
+- Transaction search capabilities
+- User transfer history access
+- Manual review processes for flagged transfers
+- System-wide transfer statistics
 
 ## Deployment and Server Setup
 
