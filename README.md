@@ -1,102 +1,141 @@
-# Clyne Website Summary
+# Clyne Platform Documentation
 
 ## Overview
-Clyne is a secure platform for managing Cryptonel (CRN) cryptocurrency on a private network. The platform provides comprehensive wallet management and mining capabilities with advanced security features. CRN operates exclusively on Clyne's network, offering enhanced control, performance, and energy efficiency.
+
+Clyne is an integrated cryptocurrency platform built for managing Cryptonel (CRN), our native digital currency that operates on a proprietary private network. The platform features comprehensive wallet management, mining capabilities, and robust security systems designed for optimal user experience and protection.
 
 ## Technology Stack
 
 ### Backend
-- **Core**: Python (Flask), MongoDB, Redis
-- **Authentication**: JWT, multi-factor security
-- **Real-time**: WebSocket, async processing
+- **Core**: Python/Flask, MongoDB, Redis
+- **Security**: JWT, advanced encryption (AES-256)
+- **Performance**: Caching, async processing, resource optimization
 
 ### Frontend
 - **Framework**: React, TypeScript, Vite
-- **UI/UX**: TailwindCSS, Framer Motion
-- **Libraries**: React Router, Axios, ApexCharts
+- **UI/UX**: TailwindCSS, Framer Motion, responsive design
+- **Data Visualization**: ApexCharts/Recharts
 
 ### Infrastructure
-- **Architecture**: Dockerized microservices
-- **Deployment**: Nginx, Redis, MongoDB
+- **Architecture**: Modular microservices
+- **Deployment**: Docker containers, Nginx
 - **Monitoring**: Prometheus, Grafana, ELK Stack
-
-### Security
-- **Encryption**: AES-256
-- **Protection**: Cloudflare DDoS protection, WAF
-- **Verification**: CSRF protection, activity monitoring
 
 ## Key Features
 
 ### User Management
-- **Authentication**: Email verification, JWT sessions, 2FA
-- **Access Control**: Role-based permissions (Regular, Premium, Admin)
-- **Security**: Device tracking, intrusion detection, one-click logout
+- Email verification and secure account creation
+- Role-based permissions (Regular, Premium, Admin)
+- Two-factor authentication (2FA)
+- Device tracking and suspicious activity monitoring
 
-### Cryptocurrency Operations
-- **Wallet**: Secure storage, multi-signature support, recovery options
-- **Transfers**: Direct wallet-to-wallet, fee optimization, transaction history
-- **Mining**: Device control, performance metrics, anti-fraud protection
+### Mining System
+- Private network mining with energy-efficient algorithms
+- Device fingerprinting to prevent abuse
+- Configurable mining periods with cooldown protection
+- Mining rewards based on difficulty algorithms
+- Premium user benefits with reduced limitations
+
+### Transfer System
+- Secure wallet-to-wallet transfers
+- Custom private addresses for identification
+- Multi-factor authentication for high-value transfers
+- Fee tiers based on transaction amount and user status
+- Quick transfer system for frequent contacts
 
 ### Security Features
-- **Account Protection**: 2FA, secret word, transfer passwords
-- **Access Control**: Time-based restrictions, geo-locking, IP whitelisting
-- **Monitoring**: Suspicious activity detection, security scoring system
+- Advanced DDoS protection with Cloudflare integration
+- Multi-factor authentication options (2FA, transfer passwords)
+- Wallet freezing capability and transfer limits
+- IP intelligence and geographic restrictions
+- Security scoring system with improvement recommendations
 
-### User Experience
-- **Dashboard**: Real-time balance, charts, activity summaries
-- **Customization**: Dark/light themes, widget arrangement
-- **Mobile-Optimized**: Responsive design, performance optimization
+### Transaction History
+- Comprehensive record of all wallet activity
+- Advanced filtering and search capabilities
+- Transaction data export in various formats
+- Visual analytics of transaction patterns
+
+### User Interface
+- Modern dashboard with real-time data
+- Customizable widgets and display preferences
+- Dark/light mode and responsive design
+- Mobile-optimized experience
 
 ## Advanced Systems
 
-### Mining System
-- **Reward Mechanism**: Difficulty algorithms, reward calculations
-- **Security**: Device fingerprinting, anti-fraud measures
-- **Limits**: Cooldown periods, device restrictions
+### Custom Address System
+- Personalized wallet addresses
+- Address verification with typo detection
+- Premium features including ultra-short addresses
+- Privacy options including disposable addresses
 
-### Transfer System
-- **Features**: Direct transfers, quick transfers, recipient management
-- **Security**: Progressive authentication based on amount
-- **Social**: User ratings (1-5 stars), feedback system
+### Notification System
+- Transaction alerts and security notifications
+- Email templates with localization support
+- User preference controls for notification types
+- Anti-phishing protection features
 
-### Privacy Controls
-- **Data Management**: GDPR/CCPA compliance, minimal storage
-- **User Options**: Profile visibility, balance hiding, hidden wallet mode
-- **Premium Features**: Enhanced privacy settings, custom addresses
+### Leaderboard System
+- Real-time user rankings by performance
+- Multiple ranking criteria (mining, transactions)
+- Cache-optimized for high performance
+- Privacy controls for user visibility
 
-### Monitoring & Analytics
-- **Performance**: Resource tracking, bottleneck analysis
-- **Security**: Threat detection, attack logging
-- **Business**: User behavior, transaction patterns
+### Performance Optimization
+- Multi-layer caching strategy
+- Resource monitoring and automatic scaling
+- Rate limiting to prevent abuse
+- Background processing for resource-intensive tasks
 
-## Infrastructure & Deployment
+## Deployment Requirements
 
-### Database Strategy
-- MongoDB with sharding for scalability
-- Optimized indexing for high-performance queries
-- Comprehensive backup with multi-region redundancy
+### Hardware Requirements
+- **Production**: 4 CPU cores, 8GB RAM recommended
+- **Development/Testing**: 2 CPU cores, 4GB RAM minimum
+- SSD storage: 50GB+ (production), 20GB+ (development)
 
-### Caching & Performance
-- Multi-layer caching (Redis, browser, CDN)
-- Memory management for resource optimization
-- Rate limiting and throttling for stability
+### Installation Process
+- Detailed step-by-step server setup procedures
+- Backend installation with dependency management
+- Frontend build process and optimization
+- Nginx configuration with SSL implementation
+- Docker deployment option with compose configuration
 
-### Deployment
-- CI/CD pipeline with automated testing
-- Containerized services with Docker Compose
-- SSL/TLS security with automatic renewal
+### Monitoring and Maintenance
+- Automated backup systems
+- Log rotation and analysis
+- Performance tuning guidelines
+- Troubleshooting common issues
 
-### Maintenance
-- Scheduled backups and log rotation
-- Dependency updates and security patches
-- Load testing and performance optimization
+## Security Measures
 
-## Future Roadmap
+### Data Protection
+- Private key encryption (AES-256)
+- Sensitive data segregation
+- Defined data retention policies
+- GDPR and CCPA compliance
+
+### Attack Prevention
+- Advanced DDoS mitigation
+- Bot detection and prevention
+- Rate limiting and request throttling
+- Suspicious activity monitoring
+
+### Authentication Security
+- Multi-factor options (2FA apps, SMS)
+- Session management and forced logout
+- IP and device fingerprinting
+- Progressive security based on action sensitivity
+
+## Future Development
+
 - Mobile applications (iOS/Android)
-- DeFi and NFT integration
-- Developer API access
-- Global market expansion
+- DeFi services integration
+- NFT support and marketplace
+- Public API for developers
+- Additional privacy features
 
----
+## Conclusion
 
-A comprehensive cryptocurrency management platform developed with security-first architecture, offering mining, transfers, and advanced security features on a private network infrastructure. 
+The Clyne platform provides a comprehensive ecosystem for Cryptonel (CRN) cryptocurrency management with emphasis on security, performance, and user experience. Its modular architecture allows for continuous improvement and feature expansion while maintaining the highest standards of protection and reliability. 
