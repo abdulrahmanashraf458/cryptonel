@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <!-- Force favicon caching with long expiry -->
+    <link
+      rel="icon"
+      type="image/png"
+      href="/images/1.png?v=2"
+      sizes="32x32"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="/images/1.png?v=2"
+      sizes="48x48"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="/images/1.png?v=2"
+      sizes="96x96"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="/images/1.png?v=2"
+      sizes="128x128"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="/images/1.png?v=2"
+      sizes="192x192"
+      crossorigin="anonymous"
+    />
+
+    <!-- Viewport settings -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Cache control meta tags -->
+    <meta
+      http-equiv="Cache-Control"
+      content="no-cache, no-store, must-revalidate"
+    />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+
+    <!-- Preload and prefetch critical assets -->
+    <link
+      rel="preload"
+      href="/images/1.png?v=2"
+      as="image"
+      type="image/png"
+      crossorigin="anonymous"
+    />
+    <link rel="prefetch" href="/images/1.png?v=2" crossorigin="anonymous" />
+
+    <!-- Prevent favicon requests -->
+    <link rel="apple-touch-icon" href="/images/1.png?v=2" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="any"
+      href="/images/1.png?v=2"
+    />
+
+    <title>Clyne</title>
+
+    <!-- DNS prefetch for critical domains -->
+    <link rel="dns-prefetch" href="//localhost" />
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <script type="module" src="/src/main.tsx"></script>
+    <script>
+      // Force refresh favicon cache
+      window.addEventListener("load", function () {
+        // Set up a MutationObserver to catch and remove duplicate favicon requests
+        const observer = new MutationObserver(function (mutations) {
+          mutations.forEach(function (mutation) {
+            if (mutation.type === "childList") {
+              const links = document.querySelectorAll('link[rel="icon"]');
+              if (links.length > 1) {
+                // Keep only the first favicon link
+                for (let i = 1; i < links.length; i++) {
+                  links[i].remove();
+                }
+              }
+            }
+          });
+        });
+
+        // Start observing head for changes
+        observer.observe(document.head, { childList: true, subtree: true });
+      });
+    </script>
+  </body>
+</html>

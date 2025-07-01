@@ -1,0 +1,61 @@
+Flask>=2.3.0
+python-dotenv==1.0.0
+flask-limiter>=2.3.0
+flask-compress>=1.10.1
+flask-talisman>=0.8.1
+flask-wtf>=1.0.0
+werkzeug>=2.3.0
+redis>=4.5.0
+waitress>=2.1.2
+gunicorn>=21.2.0; sys_platform != "win32"
+gevent>=23.9.0; sys_platform != "win32"
+requests>=2.28.0
+pymongo>=4.0.0
+flask-cors>=3.0.0
+authlib==1.2.1
+user-agents==2.2.0
+pyotp==2.9.0
+qrcode==7.4.2
+PyJWT>=2.6.0
+# Optional JSON performance libraries
+orjson>=3.8.0
+ujson>=5.4.0
+# JSON schema validation
+jsonschema>=4.17.0
+# Task scheduling
+APScheduler>=3.10.1
+# Additional detected dependencies
+bcrypt>=4.0.1
+bip_utils>=2.7.0
+# DDoS protection dependencies
+numpy>=1.22.0
+scikit-learn>=1.0.2
+mmh3>=3.0.0
+PyYAML>=6.0
+# Memory Manager dependencies
+psutil==5.9.5
+pympler>=1.0.1
+objgraph>=3.5.0
+prometheus-client>=0.14.1
+memory-profiler>=0.60.0
+fastapi>=0.68.0
+pydantic>=1.9.0
+uvicorn>=0.15.0
+
+flask-session>=0.5.0
+cachelib>=0.9.0
+marshmallow>=3.19.0
+pytz>=2023.3
+argon2-cffi>=21.3.0
+
+pyjwt
+Levenshtein
+
+flask-login
+
+watchdog
+websockets
+
+redis cachetools
+
+ yagmail

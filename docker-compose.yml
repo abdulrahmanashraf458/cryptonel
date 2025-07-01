@@ -1,0 +1,94 @@
+version: '3.8'
+
+services:
+  # تطبيق الويب الرئيسي
+  web:
+    build: .
+    restart: always
+    ports:
+      - "5000:5000"
+      - "8000:8000"
+    volumes:
+      - ./logs:/app/logs
+    environment:
+      - FLASK_ENV=production
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - REDIS_PASSWORD=clyne_secure_redis_password
+      - REDIS_DB=0
+      - SECRET_KEY=clyne_secure_secret_key_change_in_production
+      - MEMMAN_MEMORY_LIMIT_MB=4096
+    depends_on:
+      - redis
+      - mongo
+      - prometheus
+
+  # خدمة Redis للتخزين المؤقت وتحديد المعدل
+  redis:
+    image: redis:7-alpine
+    restart: always
+    command: redis-server --requirepass clyne_secure_redis_password
+    volumes:
+      - redis_data:/data
+    ports:
+      - "6379:6379"
+
+  # خدمة MongoDB
+  mongo:
+    image: mongo:6
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: clyne
+      MONGO_INITDB_ROOT_PASSWORD: clyne_secure_mongodb_password
+    volumes:
+      - mongo_data:/data/db
+    ports:
+      - "27017:27017"
+
+  # خدمة Prometheus لمراقبة الأداء
+  prometheus:
+    image: prom/prometheus:v2.44.0
+    container_name: prometheus
+    restart: unless-stopped
+    ports:
+      - "9091:9090"
+    volumes:
+      - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+      - prometheus_data:/prometheus
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+      - '--web.console.libraries=/etc/prometheus/console_libraries'
+      - '--web.console.templates=/etc/prometheus/consoles'
+      - '--web.enable-lifecycle'
+    networks:
+      - ddos-network
+
+  # خدمة Grafana للوحات المعلومات
+  grafana:
+    image: grafana/grafana:10.0.0
+    container_name: grafana
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./grafana/provisioning:/etc/grafana/provisioning
+      - grafana_data:/var/lib/grafana
+    environment:
+      - GF_SECURITY_ADMIN_USER=admin
+      - GF_SECURITY_ADMIN_PASSWORD=adminpassword  # Change this in production
+      - GF_USERS_ALLOW_SIGN_UP=false
+    depends_on:
+      - prometheus
+    networks:
+      - ddos-network
+
+volumes:
+  redis_data:
+  mongo_data:
+  prometheus_data:
+  grafana_data:
+
+networks:
+  ddos-network:
+    driver: bridge 

@@ -1,0 +1,29 @@
+# Ignore git files
+.git
+.gitignore
+
+# Ignore logs
+logs/*
+
+# Ignore node modules
+node_modules/
+dist/
+
+# Ignore environment and cache files
+.env
+.env.local
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.coverage
+
+# Editor directories and files
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Local data and development files
+data/
+.DS_Store 
