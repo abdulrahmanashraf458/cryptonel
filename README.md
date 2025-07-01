@@ -1,8 +1,8 @@
-# Detailed Documentation for Clyne Website
+# Detailed Documentation for Cryptonel Website
 
 ## Introduction
 
-Welcome to the detailed documentation of Clyne, an integrated system for cryptocurrency wallet management and mining operations, built with the latest technologies and global security standards. Clyne operates on its own proprietary private network exclusively supporting Cryptonel (CRN), our native cryptocurrency.
+Welcome to the detailed documentation of Cryptonel, an integrated system for cryptocurrency wallet management and mining operations, built with the latest technologies and global security standards. Cryptonel operates on its own proprietary private network exclusively supporting (CRN), our native cryptocurrency.
 
 **About Cryptonel (CRN):**
 Cryptonel is the platform's exclusive digital currency with the ticker symbol CRN. Unlike traditional cryptocurrencies, CRN operates on Clyne's private network rather than a public blockchain. This provides enhanced control, security, and performance optimization. CRN serves as the only currency within the ecosystem, enabling transactions, access to premium features, and participation in the platform's governance. The mining algorithms for CRN are specifically optimized for energy efficiency within the Clyne network environment.
