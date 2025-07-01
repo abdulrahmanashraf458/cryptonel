@@ -1,0 +1,476 @@
+/* CSS خاص ببطاقات المعاملات في الواجهة */
+
+/* قواعد عامة للبطاقات */
+.transaction-card {
+  position: relative;
+  overflow: hidden !important; /* ضمان عدم خروج أي محتوى */
+  container-type: inline-size;
+  container-name: card;
+  max-width: 100%; /* ضمان عدم تجاوز حدود العنصر الأب */
+}
+
+/* ضمان بقاء أيقونة المعاملات داخل البطاقة */
+.transaction-card .bg-violet-50 {
+  position: relative;
+  max-width: 42px;
+  min-width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+/* تنسيق عنوان البطاقة - إضافة خط جديد */
+.transaction-card-title {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: calc(100% - 50px); /* إفساح مجال للأيقونة الأكبر */
+}
+
+/* تحسين عرض إحصائيات المعاملات للشاشات المتوسطة والصغيرة */
+/* تطبيق عمودي للإحصائيات في الشاشات المحددة */
+@media (max-width: 767px) {
+  .transaction-stats {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+  }
+
+  .transaction-stats > div:first-child {
+    margin-bottom: 0.5rem !important;
+  }
+}
+
+/* تطبيق عمودي للإحصائيات في نطاق الشاشات المتوسطة */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .transaction-stats {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+  }
+
+  .transaction-stats > div:first-child {
+    margin-bottom: 0.5rem !important;
+  }
+}
+
+/* تطبيق عمودي للإحصائيات في نطاق الشاشات 1024-1435 بكسل - المشكلة المحددة */
+@media (min-width: 1024px) and (max-width: 1435px) {
+  .transaction-stats {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    display: flex !important;
+  }
+
+  .transaction-stats > div:first-child {
+    margin-bottom: 0.75rem !important;
+  }
+}
+
+/* إضافة صنف خاص للاستخدام الديناميكي عبر JavaScript */
+.transaction-stats.vertical-stats {
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  display: flex !important;
+}
+
+.transaction-stats.vertical-stats > div:first-child {
+  margin-bottom: 0.5rem !important;
+}
+
+/* استخدام استعلام الحاوية (container query) للتطبيق على أساس عرض البطاقة */
+@container card (max-width: 200px) {
+  .transaction-title-word {
+    display: block !important;
+    width: 100%;
+    margin-bottom: 2px;
+  }
+}
+
+/* عندما يكون عرض البطاقة أقل من 200 بكسل */
+@media (max-width: 200px) {
+  .transaction-title-word {
+    display: block !important;
+    width: 100%;
+    margin-bottom: 2px;
+  }
+}
+
+/* عندما يكون عرض البطاقة 200 بكسل أو أكثر */
+.transaction-title-word {
+  display: inline-block;
+  margin-right: 4px;
+}
+
+/* CSS الاحتياطي للمتصفحات التي لا تدعم media queries */
+@supports not (max-width: 200px) {
+  .transaction-card.small .transaction-title-word {
+    display: block !important;
+    width: 100%;
+  }
+}
+
+/* تنسيق خاص للبطاقات */
+
+/* تنسيق رأس البطاقة */
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+}
+
+/* حاوية العنوان */
+.title-container {
+  max-width: calc(100% - 50px); /* تخصيص مساحة للأيقونة */
+  flex: 1;
+}
+
+/* تنسيق العنوان بالكلمات قابلة للكسر */
+.card-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #374151;
+  letter-spacing: 0.01em;
+  word-wrap: break-word;
+  hyphens: auto;
+}
+
+/* تنسيق الأيقونة */
+.icon-container {
+  width: 40px;
+  height: 40px;
+  min-width: 40px; /* تثبيت العرض الأدنى */
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 10px;
+  flex-shrink: 0; /* منع الانكماش */
+}
+
+/* ألوان خاصة للأيقونات */
+.icon-violet {
+  background-color: #ede9fe;
+}
+
+.icon-violet svg {
+  color: #8b5cf6;
+}
+
+/* ترتيب العناصر داخل sent-stats - المهم أن يكون السهم بعد النص */
+.sent-stats {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+}
+
+.sent-stats span {
+  order: 1 !important; /* النص أولاً */
+}
+
+.sent-stats svg {
+  order: 2 !important; /* السهم بعد النص */
+  margin-left: 6px !important;
+}
+
+/* قواعد عمودية للشاشات المتوسطة والصغيرة */
+@media (max-width: 1435px) {
+  .transaction-stats {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+  }
+
+  .transaction-stats > div:first-child {
+    margin-bottom: 0.75rem !important;
+  }
+}
+
+/* قواعد أفقية للشاشات 1023 بكسل وأقل */
+@media (max-width: 1023px) {
+  .transaction-stats {
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    flex-wrap: wrap !important;
+  }
+
+  .transaction-stats > div {
+    margin-right: 1rem !important;
+  }
+
+  /* إلغاء التنسيق العمودي */
+  .transaction-stats > div:first-child {
+    margin-bottom: 0 !important;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Add mobile responsive styles */
+/* Mobile-first responsive design for Overview page */
+.transaction-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+@media (min-width: 768px) {
+  .transaction-stats {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+/* Make cards more compact on mobile */
+.card-compact {
+  padding: 12px !important;
+}
+
+@media (min-width: 640px) {
+  .card-compact {
+    padding: 16px !important;
+  }
+}
+
+/* Improve font sizes for mobile */
+.mobile-text-xs {
+  font-size: 0.75rem;
+}
+
+@media (min-width: 640px) {
+  .mobile-text-xs {
+    font-size: 0.875rem;
+  }
+}
+
+/* Fix scrolling issues on mobile */
+.transactions-container {
+  max-height: calc(100vh - 240px);
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Make the charts more touch-friendly */
+.recharts-wrapper .recharts-surface {
+  touch-action: pan-y;
+}
+
+/* Better dropdown handling for mobile */
+.dropdown-menu {
+  position: static;
+}
+
+@media (min-width: 640px) {
+  .dropdown-menu {
+    position: relative;
+  }
+}
+
+/* Adjust chart for small screens */
+@media (max-width: 640px) {
+  .recharts-wrapper .recharts-cartesian-grid-horizontal line,
+  .recharts-wrapper .recharts-cartesian-grid-vertical line {
+    stroke-opacity: 0.3;
+  }
+
+  .recharts-wrapper .recharts-cartesian-axis-tick-value {
+    font-size: 10px;
+  }
+
+  .recharts-legend-item {
+    font-size: 10px;
+  }
+}
+
+/* Make address containers scroll horizontally on mobile */
+.address-container {
+  overflow-x: auto;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Improve tap targets for mobile */
+.mobile-tap-target {
+  min-height: 44px;
+  min-width: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Fix layout on very small screens (< 320px) */
+@media (max-width: 320px) {
+  .header-flex {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .action-buttons {
+    margin-top: 8px;
+    align-self: flex-end;
+  }
+}
+
+/* Prevent layout shifting when loading */
+.placeholder-loader {
+  min-height: 100px;
+}
+
+/* Card heights for consistent appearance */
+.same-height-cards {
+  display: flex;
+  flex-direction: column;
+}
+
+.same-height-cards > div {
+  flex: 1;
+}
+
+/* Ensure buttons have adequate tap targets on mobile */
+button {
+  min-height: 36px;
+  min-width: 36px;
+}
+
+/* Add these styles to improve mobile experience */
+.vertical-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* تصغير خط الأرقام في Total Balance فقط للشاشات الصغيرة (الجوال) */
+@media (max-width: 640px) {
+  /* نمط خاص لعرض الرصيد الإجمالي في شاشات الجوال - تصغير الخط مع بولد */
+  .order-1 .text-4xl.font-bold {
+    font-weight: 700 !important; /* بولد */
+    font-size: 1.5rem !important; /* تصغير الخط أكثر */
+    line-height: 1.2 !important; /* تقليل المسافة بين السطور */
+  }
+
+  /* تحسين مظهر عملة CRN بجانب الرصيد - تصغير أكثر */
+  .order-1 .mt-3 span[class*="text-"] + span {
+    font-weight: 600 !important;
+    font-size: 0.75rem !important; /* تصغير الخط أكثر */
+  }
+
+  /* تصغير نسبة النمو والمعلومات في الأسفل */
+  .order-1 .flex.items-center.mt-3 {
+    font-size: 0.75rem !important; /* تصغير النص */
+  }
+
+  /* تصغير نسبة النمو تحديداً */
+  .order-1 .flex.items-center.mt-3 .font-semibold {
+    font-size: 0.75rem !important;
+  }
+
+  /* تصغير نص "Updated" */
+  .order-1 .flex.items-center.mt-3 .text-xs {
+    font-size: 0.7rem !important;
+  }
+}
+
+/* Adjust modal positioning on mobile */
+.modal-mobile {
+  width: 95% !important;
+  margin: 0 auto;
+  max-height: 90vh;
+}
+
+/* Adjust font sizes for better readability on small screens */
+@media (max-width: 640px) {
+  h1,
+  h2,
+  h3 {
+    word-break: break-word;
+  }
+
+  .truncate-mobile {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 180px;
+  }
+}
+
+/* أنماط جديدة خاصة بشريط التنقل وأيقونة البرجر للجوال */
+/* تنسيق زر البرجر ليكون في النافبار */
+@media (max-width: 767px) {
+  /* دمج زر القائمة في النافبار */
+  .mobile-burger-button {
+    background-color: transparent !important;
+    color: white;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border: none;
+    outline: none;
+    margin-right: 10px;
+    margin-left: -8px;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+  }
+
+  .mobile-burger-button:active {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+    transform: scale(0.95);
+  }
+
+  /* إضافة حالة hover للزر */
+  .mobile-burger-button:hover {
+    background-color: rgba(255, 255, 255, 0.05) !important;
+  }
+
+  /* تحسين توضيح الزر للمستخدم */
+  .mobile-burger-button svg {
+    stroke-width: 2.5px;
+  }
+
+  /* إخفاء عنوان Overview في الشاشات الصغيرة */
+  .mobile-hidden-title {
+    display: none !important;
+  }
+
+  /* إزالة تنسيقات navbar-mobile لأن الزر أصبح جزءًا من النافبار */
+  .navbar-mobile {
+    display: none;
+  }
+}
+
+/* تأكيد إخفاء العنوان في الشاشة الصغيرة والعرض في الشاشات الأكبر */
+@media (min-width: 768px) {
+  .mobile-hidden-title {
+    display: block !important;
+  }
+
+  .mobile-burger-button {
+    display: none !important;
+  }
+}
