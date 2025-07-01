@@ -1,0 +1,14 @@
+bypass_on_error: true
+cloudflare:
+  api_email: ''
+  api_key: ''
+  enabled: true
+  zone_id: ''
+enabled: true
+use_cloudflare_exclusively: true
+whitelist:
+- 127.0.0.1
+- ::1
+- 10.0.0.0/8
+- 172.16.0.0/12
+- 192.168.0.0/16

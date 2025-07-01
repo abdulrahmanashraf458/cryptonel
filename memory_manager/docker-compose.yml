@@ -1,0 +1,53 @@
+version: '3.8'
+
+services:
+  # Example Flask application with memory management
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"
+    environment:
+      - FLASK_APP=example/app.py
+      - FLASK_ENV=production
+      - MEMMAN_MEMORY_LIMIT_MB=512
+      - MEMMAN_GC_CONFIG__THRESHOLD_PERCENT=70.0
+      - MEMMAN_MONITORING__INTERVAL_SECONDS=5.0
+      - MEMMAN_API__ENABLED=true
+      - MEMMAN_API__ENDPOINT_PREFIX=/memory
+    volumes:
+      - ./logs:/app/logs
+    restart: unless-stopped
+    # Increase memory limit to make it visible to memory manager
+    mem_limit: 512m
+    
+  # Prometheus for metrics collection
+  prometheus:
+    image: prom/prometheus
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+    restart: unless-stopped
+    depends_on:
+      - web
+    
+  # Grafana for metrics visualization
+  grafana:
+    image: grafana/grafana
+    ports:
+      - "3000:3000"
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+      - GF_USERS_ALLOW_SIGN_UP=false
+    volumes:
+      - grafana_data:/var/lib/grafana
+      - ./grafana/provisioning:/etc/grafana/provisioning
+      - ./grafana/dashboards:/var/lib/grafana/dashboards
+    restart: unless-stopped
+    depends_on:
+      - prometheus
+
+volumes:
+  grafana_data: 

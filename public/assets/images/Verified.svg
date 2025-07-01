@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <defs>
+    <linearGradient id="verifiedGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2979FF" />
+      <stop offset="100%" style="stop-color:#9C27B0" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Main badge shape - octagon with rounded corners -->
+  <path d="M12 2L6.5 4L4 6.5L2 12L4 17.5L6.5 20L12 22L17.5 20L20 17.5L22 12L20 6.5L17.5 4L12 2Z" 
+        fill="url(#verifiedGradient)" />
+  
+  <!-- White checkmark -->
+  <path d="M10 15.17L7.83 13L6.41 14.41L10 18L18 10L16.59 8.59L10 15.17Z" 
+        fill="white" />
+</svg> 

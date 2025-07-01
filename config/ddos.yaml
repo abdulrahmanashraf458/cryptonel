@@ -1,0 +1,109 @@
+api:
+  allow_cors: false
+  auth_required: true
+  auth_token: 6_tRd12dJfqibrZD-ZAB-HQ3NRWASx2_Qh5jos54Jlw
+  base_path: /ddos
+  cors_origins:
+  - http://localhost:3000
+  enable_management: true
+  enable_metrics: true
+  rate_limit: 60
+  token_expiry: 86400
+bypass_on_error: true
+config_path: ./config/ddos.yaml
+data_dir: ./data
+detector:
+  block_score_threshold: 5
+  block_threshold: 10
+  blocked_countries: []
+  bot_variance_threshold: 0.01
+  cleanup_interval: 30
+  error_rate_threshold: 0.4
+  geo_db_path: ./data/geolite2-country.mmdb
+  global_rate_threshold: 100.0
+  global_window: 60
+  min_samples_for_training: 100
+  ml_retrain_interval: 3600
+  path_entropy_threshold: 1.5
+  rate_threshold: 20.0
+  record_expiry: 1800
+  suspicious_ip_threshold: 10
+  ua_diversity_threshold: 5
+  use_geolocation: false
+  use_ml: true
+  whitelist:
+  - 127.0.0.1
+  - ::1
+  - 10.0.0.0/8
+  - 172.16.0.0/12
+  - 192.168.0.0/16
+  window_size: 60
+enabled: true
+integration_mode: middleware
+mitigator:
+  challenge_expiry: 300
+  challenge_secret: ''
+  circuit_reset_timeout: 30
+  circuit_threshold: 5
+  circuit_threshold_critical: 3
+  cleanup_interval: 60
+  critical_endpoints:
+  - /login
+  - /register
+  - /api/auth
+  - /api/payment
+  - /admin
+  enable_redirection: false
+  endpoint_rate_limit: 100
+  global_circuit_threshold: 20
+  global_rate_limit: 500
+  ip_rate_limit: 30
+  max_challenge_attempts: 5
+  permanent_block_threshold: 15
+  rate_window: 60
+  redirect_destination: DROP
+  redirect_threshold: 8
+  resource_check_interval: 30
+  tarpit_base_delay: 0.1
+  tarpit_expiry: 1800
+  tarpit_max_delay: 10.0
+monitor:
+  alert_cooldown: 300
+  alert_methods:
+  - console
+  alert_threshold: 2.0
+  email_from: ddos-monitor@example.com
+  email_password: ''
+  email_port: 587
+  email_server: smtp.example.com
+  email_to: []
+  email_use_tls: true
+  email_username: ''
+  enable_alerts: false
+  enable_json_logs: false
+  enable_prometheus: true
+  log_file: ''
+  log_format: '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+  log_level: INFO
+  prometheus_port: 9090
+  slack_webhook_url: ''
+  webhook_headers: {}
+  webhook_method: POST
+  webhook_url: ''
+storage:
+  banned_ips_ttl: 2592000
+  challenge_tokens_ttl: 1800
+  cleanup_interval: 3600
+  json_directory: storage
+  max_banned_ips: 100000
+  max_challenge_tokens: 20000
+  max_rate_limits: 50000
+  max_suspicious_ips: 500000
+  rate_limits_ttl: 3600
+  redis_db: 0
+  redis_host: localhost
+  redis_password: ''
+  redis_port: 6379
+  redis_prefix: 'ddos:'
+  suspicious_ips_ttl: 86400
+  type: json
